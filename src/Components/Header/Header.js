@@ -1,22 +1,19 @@
 import "./Header.css"
 
-const Header = () => {
+const Header = ({ categories, filter }) => {
     return (
       <nav className="product-filter">
-        <h1>Jackets</h1>
+        <h1>FASHION SHOP</h1>
   
         <div className="sort">
           <div className="collection-sort">
             <label>Filter by:</label>
-            <select>
-              <option value="/">All Jackets</option>
-              <option value="/">2016</option>
-              <option value="/">jacket</option>
-              <option value="/">Jackets</option>
-              <option value="/">layers</option>
-              <option value="/">Obermeyer</option>
-              <option value="/">Roxy</option>
-              <option value="/">womens</option>
+            <select onChange={(e) => filter(e.target.value)}>
+              {categories.map((cat) => (
+                <option key={`cat-${cat}`} value={cat}>
+                  {cat}
+                </option>
+              ))}
             </select>
           </div>
   
